@@ -1,0 +1,47 @@
+body {
+    background-color: #999999;
+}
+
+#mediaSliderSlider img {
+    max-width: 250px;
+}
+
+.jcarousel-wrapper {
+    margin: 20px auto;
+    position: relative;
+    border: 10px solid #fff;
+    width: 500px;
+    height: 130px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow: 0 0 2px #999;
+    box-shadow: 0 0 2px #999;
+}
+
+.jcarousel {
+    width: 500px; /* Define the slider's width */
+    position: relative;
+    overflow: hidden;
+}
+
+.jcarousel ul {
+    width: 10000%;
+    position: relative;
+    top: 0;
+    right: 0;
+
+    /* Define the transition for the animation */
+    transition: all 0.6s ease;
+
+    /* If you are using a <ul>, reset its default styles */
+    list-style: outside none;
+    padding: 0;
+    margin: 0;
+}
+
+.jcarousel li {
+    /* Float only for HORIZONTAL direction */
+    float: left;
+}

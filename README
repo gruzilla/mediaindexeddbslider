@@ -1,0 +1,14 @@
+a hacky file upload to indexedDB based on
+
+https://jquery.com
+https://www.dropzonejs.com
+https://github.com/gsantiago/vanilla-slider
+
+these helped:
+
+https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB
+https://hacks.mozilla.org/2012/02/storing-images-and-files-in-indexeddb/
+https://itnext.io/integrating-dropzone-with-javascript-image-cropper-optimise-image-upload-e22b12ac0d8a
+http://stackoverflow.com/questions/9267899/ddg#9458996
+
+to use: open index.html using an arbitrary local webserver

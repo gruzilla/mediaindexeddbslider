@@ -1,4 +1,4 @@
-function mediaSlider(window, jQuery, dropzoneJS, options) {
+function mediaSlider(window, jQuery, dropzoneJS, slider, options) {
     var DB;
 
     function constructor() {
@@ -6,7 +6,7 @@ function mediaSlider(window, jQuery, dropzoneJS, options) {
             initHTML();
             initDropzone();
             iterateMedia().then(function() {
-                initJcarousel();
+                initCarousel();
             });
         }, function() {
             console.error(arguments);
@@ -18,10 +18,10 @@ function mediaSlider(window, jQuery, dropzoneJS, options) {
     function initHTML() {
         jQuery(options.element).html(
             '<div id="' + options.dropzoneSelector + '" class="dropzone"></div>' +
-            '<div class="jcarousel-wrapper">' +
-            '<div class="jcarousel"><ul id="' + options.sliderSelector + '"></ul></div>'+
-            '<a href="#" class="jcarousel-control-prev">&lsaquo;</a>\n' +
-            '<a href="#" class="jcarousel-control-next">&rsaquo;</a>' +
+            '<div class="carousel"><ul id="' + options.sliderSelector + '"></ul></div>'+
+            '<div class="carousel-control">' +
+            '<a href="#" class="carousel-control-prev">&lsaquo; prev</a> | ' +
+            '<a href="#" class="carousel-control-next">next &rsaquo;</a>' +
             '</div>'
         );
     }
@@ -138,22 +138,11 @@ function mediaSlider(window, jQuery, dropzoneJS, options) {
         );
     }
 
-    function initJcarousel() {
-        /*
-        var carousel = jQuery('.jcarousel').jcarousel(options.jcarouselOptions);
-        jQuery('.jcarousel-control-prev').jcarouselControl({
-            target: '-=1',
-            carousel: carousel
-        });
-        jQuery('.jcarousel-control-next').jcarouselControl({
-            target: '+=1',
-            carousel: carousel
-        });
-        */
-        var slider = new Slider('.jcarousel', {
+    function initCarousel() {
+        new slider('.carousel', {
             visibles: 2,
-            controlNext: '.jcarousel-control-next',
-            controlPrev: '.jcarousel-control-prev'
+            controlNext: '.carousel-control-next',
+            controlPrev: '.carousel-control-prev'
         });
         console.log('initialized carousel');
     }
@@ -232,15 +221,13 @@ $(document).ready(function() {
         window,
         window.jQuery,
         window.Dropzone,
+        window.Slider,
         {
             element: window.document.body,
             dropzoneSelector: 'mediaSliderDropzone',
             dbName: 'mediaSlider',
             storeName: 'media',
-            sliderSelector: 'mediaSliderSlider',
-            jcarouselOptions: {
-                transitions: true
-            }
+            sliderSelector: 'mediaSliderSlider'
         }
     );
 });
